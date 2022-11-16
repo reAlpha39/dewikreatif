@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  icons_launcher: ^2.0.6
   webview_flutter: ^3.0.4
 
 dev_dependencies:
@@ -21,3 +22,13 @@ flutter:
   uses-material-design: true
   assets:
     - 'assets/'
+
+icons_launcher:
+  image_path: 'assets/icons.png'
+  adaptive_foreground_image: 'assets/icon.png'
+  adaptive_background_color: '#ffffff'
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
