@@ -5,11 +5,14 @@ class SplashScreenLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: const Color(0xFF34495E),
-        child: Center(
-          child: Image.asset('assets/maskot.png'),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Container(
+          color: const Color(0xFF34495E),
+          child: Center(
+            child: Image.asset('assets/maskot.png'),
+          ),
         ),
       ),
     );
