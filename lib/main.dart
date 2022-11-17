@@ -1,7 +1,12 @@
 import 'package:dewikreatif/widgets/main_webview.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Permission.camera.request();
+  await Permission.storage.request();
+
   runApp(const MyApp());
 }
 
@@ -19,7 +24,3 @@ class MyApp extends StatelessWidget {
         home: const MainWebView());
   }
 }
-
-
-
-
