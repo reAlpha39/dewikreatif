@@ -13,6 +13,7 @@ class MainWebView extends StatefulWidget {
 class _MainWebViewState extends State<MainWebView> {
   late InAppWebViewController _webViewController;
   bool firstLoad = true;
+  bool isLoading = false;
 
   Future<bool> _customGoBack() async {
     if (await _webViewController.canGoBack()) {
@@ -28,50 +29,73 @@ class _MainWebViewState extends State<MainWebView> {
     return WillPopScope(
       onWillPop: () async => _customGoBack(),
       child: SafeArea(
-        child: InAppWebView(
-          initialUrlRequest: URLRequest(
-            url: Uri.parse('https://dewikreatif.com/'),
-          ),
-          onLoadStart: (_, __) {
-            if (firstLoad) {
-              showGeneralDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  pageBuilder: (_, __, ___) => const SplashScreenLoading());
-            }
-          },
-          onLoadStop: (_, __) {
-            if (firstLoad) {
-              firstLoad = false;
-              Navigator.pop(context);
-            }
-          },
-          onWebViewCreated: (controller) => _webViewController = controller,
-          initialOptions: InAppWebViewGroupOptions(
-            crossPlatform: InAppWebViewOptions(
-              useShouldOverrideUrlLoading: true,
-              useOnLoadResource: true,
+          child: Column(
+        children: [
+          isLoading
+              ? const LinearProgressIndicator(
+                  color: Color(0xFF34495E),
+                  minHeight: 5,
+                )
+              : const SizedBox(),
+          Expanded(
+            child: InAppWebView(
+              initialUrlRequest: URLRequest(
+                url: Uri.parse('https://dewikreatif.com/'),
+              ),
+              onLoadStart: (_, __) {
+                if (firstLoad) {
+                  showGeneralDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      pageBuilder: (_, __, ___) => const SplashScreenLoading());
+                }
+              },
+              onLoadStop: (_, __) {
+                if (firstLoad) {
+                  firstLoad = false;
+                  Navigator.pop(context);
+                }
+                setState(() {
+                  isLoading = false;
+                });
+              },
+              onWebViewCreated: (controller) => _webViewController = controller,
+              initialOptions: InAppWebViewGroupOptions(
+                crossPlatform: InAppWebViewOptions(
+                  useShouldOverrideUrlLoading: true,
+                  useOnLoadResource: true,
+                ),
+              ),
+              shouldOverrideUrlLoading: (controller, navigationAction) async {
+                Uri url = navigationAction.request.url!;
+                if (![
+                  'http',
+                  'https',
+                  'file',
+                  'chrome',
+                  'data',
+                  'javascript',
+                  'about'
+                ].contains(url.scheme)) {
+                  await launchUrl(url);
+                  return NavigationActionPolicy.CANCEL;
+                } else {
+                  setState(() {
+                    isLoading = true;
+                  });
+                  return NavigationActionPolicy.ALLOW;
+                }
+              },
+              androidOnPermissionRequest:
+                  (controller, origin, resources) async {
+                return PermissionRequestResponse(
+                    resources: resources,
+                    action: PermissionRequestResponseAction.GRANT);
+              },
             ),
           ),
-          shouldOverrideUrlLoading: (controller, navigationAction) async {
-            Uri url = navigationAction.request.url!;
-            if (![
-              'http',
-              'https',
-              'file',
-              'chrome',
-              'data',
-              'javascript',
-              'about'
-            ].contains(url.scheme)) {
-              await launchUrl(url);
-              return NavigationActionPolicy.CANCEL;
-            } else {
-              return NavigationActionPolicy.ALLOW;
-            }
-          },
-        ),
-      ),
+        ],
+      )),
     );
   }
 }
