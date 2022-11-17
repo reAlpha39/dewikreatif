@@ -10,8 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  flutter_inappwebview: ^5.7.1+1
   icons_launcher: ^2.0.6
-  webview_flutter: ^3.0.4
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
