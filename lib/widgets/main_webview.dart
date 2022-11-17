@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dewikreatif/widgets/splash_screen_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -14,6 +16,46 @@ class _MainWebViewState extends State<MainWebView> {
   late InAppWebViewController _webViewController;
   bool firstLoad = true;
   bool isLoading = false;
+
+  late PullToRefreshController _pullToRefreshController;
+  double progress = 0;
+
+  final InAppWebViewGroupOptions _options = InAppWebViewGroupOptions(
+    crossPlatform: InAppWebViewOptions(
+      useShouldOverrideUrlLoading: true,
+      useOnLoadResource: true,
+    ),
+    android: AndroidInAppWebViewOptions(
+      useHybridComposition: true,
+    ),
+    ios: IOSInAppWebViewOptions(
+      allowsInlineMediaPlayback: true,
+    ),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+
+    _pullToRefreshController = PullToRefreshController(
+      options: PullToRefreshOptions(
+        color: const Color(0xFF34495E),
+      ),
+      onRefresh: () async {
+        if (Platform.isAndroid) {
+          _webViewController.reload();
+        } else if (Platform.isIOS) {
+          _webViewController.loadUrl(
+              urlRequest: URLRequest(url: await _webViewController.getUrl()));
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   Future<bool> _customGoBack() async {
     if (await _webViewController.canGoBack()) {
@@ -32,8 +74,9 @@ class _MainWebViewState extends State<MainWebView> {
           child: Column(
         children: [
           isLoading
-              ? const LinearProgressIndicator(
-                  color: Color(0xFF34495E),
+              ? LinearProgressIndicator(
+                  value: progress,
+                  color: const Color(0xFF34495E),
                   minHeight: 5,
                 )
               : const SizedBox(),
@@ -42,6 +85,7 @@ class _MainWebViewState extends State<MainWebView> {
               initialUrlRequest: URLRequest(
                 url: Uri.parse('https://dewikreatif.com/'),
               ),
+              pullToRefreshController: _pullToRefreshController,
               onLoadStart: (_, __) {
                 if (firstLoad) {
                   showGeneralDialog(
@@ -55,17 +99,24 @@ class _MainWebViewState extends State<MainWebView> {
                   firstLoad = false;
                   Navigator.pop(context);
                 }
+                _pullToRefreshController.endRefreshing();
                 setState(() {
                   isLoading = false;
                 });
               },
+              onLoadError: (_, __, ___, ____) =>
+                  _pullToRefreshController.endRefreshing(),
+              onProgressChanged: (controller, progress) {
+                if (progress == 100) {
+                  _pullToRefreshController.endRefreshing();
+                }
+                setState(() {
+                  this.progress = progress / 100;
+                  isLoading = true;
+                });
+              },
               onWebViewCreated: (controller) => _webViewController = controller,
-              initialOptions: InAppWebViewGroupOptions(
-                crossPlatform: InAppWebViewOptions(
-                  useShouldOverrideUrlLoading: true,
-                  useOnLoadResource: true,
-                ),
-              ),
+              initialOptions: _options,
               shouldOverrideUrlLoading: (controller, navigationAction) async {
                 Uri url = navigationAction.request.url!;
                 if (![
