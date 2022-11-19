@@ -76,6 +76,7 @@ class _MainWebViewState extends State<MainWebView> {
           isLoading
               ? LinearProgressIndicator(
                   value: progress,
+                  backgroundColor: const Color(0xFFF1C40F),
                   color: const Color(0xFF34495E),
                   minHeight: 5,
                 )
