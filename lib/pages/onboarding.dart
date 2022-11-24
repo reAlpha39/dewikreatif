@@ -83,7 +83,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Desa Wisata Banyurejo',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -92,7 +92,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Jelajahi berbagai macam wisata di Kalurahan Banyurejo!',
                               style: GoogleFonts.roboto(
-                                fontSize: 24,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
@@ -101,7 +101,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Tersedia informasi lengkap seputar aktivitas, fasilitas, lokasi serta panduan wisata.',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -115,15 +115,15 @@ class OnboardA extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               child: Center(
                                 child: Text(
                                   'Selanjutnya',
                                   style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
                                     color: Colors.black,
                                   ),
                                 ),
