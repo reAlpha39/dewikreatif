@@ -83,7 +83,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Desa Wisata Banyurejo',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -92,7 +92,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Jelajahi berbagai macam wisata di Kalurahan Banyurejo!',
                               style: GoogleFonts.roboto(
-                                fontSize: 24,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
@@ -101,7 +101,7 @@ class OnboardA extends StatelessWidget {
                             Text(
                               'Tersedia informasi lengkap seputar aktivitas, fasilitas, lokasi serta panduan wisata.',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -115,16 +115,16 @@ class OnboardA extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               child: Center(
                                 child: Text(
                                   'Selanjutnya',
                                   style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFF34495E),
                                   ),
                                 ),
                               ),
@@ -141,7 +141,7 @@ class OnboardA extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Image.asset(
                       'assets/maskot1.png',
-                      height: 250,
+                      height: 210,
                     ),
                   ),
                 )
@@ -208,7 +208,7 @@ class OnboardB extends StatelessWidget {
                             Text(
                               'Desa Wisata Banyurejo',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -217,7 +217,7 @@ class OnboardB extends StatelessWidget {
                             Text(
                               'Beragam aktivitas yang bisa dilakukan!',
                               style: GoogleFonts.roboto(
-                                fontSize: 24,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
@@ -226,7 +226,7 @@ class OnboardB extends StatelessWidget {
                             Text(
                               'Dari mulai budaya, religi, edukasi, kuliner, hingga wisata alam dapat dijelajahi.',
                               style: GoogleFonts.laila(
-                                fontSize: 16,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
@@ -242,16 +242,16 @@ class OnboardB extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               child: Center(
                                 child: Text(
                                   'Mulai',
                                   style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFF34495E),
                                   ),
                                 ),
                               ),
@@ -268,7 +268,7 @@ class OnboardB extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Image.asset(
                       'assets/maskot2.png',
-                      height: 250,
+                      height: 210,
                     ),
                   ),
                 )
