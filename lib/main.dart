@@ -1,3 +1,4 @@
+import 'package:dewikreatif/pages/onboarding.dart';
 import 'package:dewikreatif/widgets/main_webview.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'dewikreatif',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MainWebView());
+      title: 'dewikreatif',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const OnBoarding(),
+    );
   }
 }
