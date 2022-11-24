@@ -84,6 +84,14 @@ class _MainWebViewState extends State<MainWebView> {
                 : const SizedBox(),
             Expanded(
               child: InAppWebView(
+                androidOnGeolocationPermissionsShowPrompt:
+                    (controller, origin) async {
+                  return GeolocationPermissionShowPromptResponse(
+                    origin: origin,
+                    allow: true,
+                    retain: false,
+                  );
+                },
                 initialUrlRequest: URLRequest(
                   url: Uri.parse('https://dewikreatif.com/'),
                 ),
@@ -132,7 +140,7 @@ class _MainWebViewState extends State<MainWebView> {
                     'javascript',
                     'about'
                   ].contains(url.scheme)) {
-                    await launchUrl(url);
+                    await launchUrl(url, mode: LaunchMode.externalApplication);
                     return NavigationActionPolicy.CANCEL;
                   } else {
                     setState(() {

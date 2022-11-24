@@ -7,6 +7,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Permission.camera.request();
   await Permission.storage.request();
+  await Permission.location.request();
 
   runApp(const MyApp());
 }
