@@ -9,9 +9,19 @@ class SplashScreenLoading extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: Container(
-          color: const Color(0xFF34495E),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFF1BCD7C),
+                Color(0xFF005B7A),
+              ],
+            ),
+          ),
+          //color: const Color(0xFF34495E),
           child: Center(
-            child: Image.asset('assets/maskot.png'),
+            child: Image.asset('assets/rejo.png'),
           ),
         ),
       ),
