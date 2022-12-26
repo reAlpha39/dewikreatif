@@ -1,5 +1,6 @@
 import 'package:dewikreatif/widgets/main_webview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -79,34 +80,34 @@ class OnboardA extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 32),
+                            SizedBox(height: 32.h),
                             Text(
                               'Desa Wisata Banyurejo',
                               style: GoogleFonts.laila(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: 8.h),
                             Text(
                               'Jelajahi berbagai macam wisata di Kalurahan Banyurejo!',
                               style: GoogleFonts.roboto(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: 8.h),
                             Text(
                               'Tersedia informasi lengkap seputar aktivitas, fasilitas, lokasi serta panduan wisata.',
                               style: GoogleFonts.laila(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16.h),
                             ElevatedButton(
                               onPressed: () => pageController.nextPage(
                                 duration: const Duration(milliseconds: 500),
@@ -122,7 +123,7 @@ class OnboardA extends StatelessWidget {
                                 child: Text(
                                   'Selanjutnya',
                                   style: GoogleFonts.poppins(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w600,
                                     color: const Color(0xFF34495E),
                                   ),
@@ -141,7 +142,7 @@ class OnboardA extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Image.asset(
                       'assets/maskot1.png',
-                      height: 210,
+                      height: 210.h,
                     ),
                   ),
                 )
@@ -204,34 +205,34 @@ class OnboardB extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 32),
+                            SizedBox(height: 32.h),
                             Text(
                               'Desa Wisata Banyurejo',
                               style: GoogleFonts.laila(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: 8.h),
                             Text(
                               'Beragam aktivitas yang bisa dilakukan!',
                               style: GoogleFonts.roboto(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: 8.h),
                             Text(
                               'Dari mulai budaya, religi, edukasi, kuliner, hingga wisata alam dapat dijelajahi.',
                               style: GoogleFonts.laila(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16.h),
                             ElevatedButton(
                               onPressed: () => Navigator.pushReplacement(
                                 context,
@@ -249,7 +250,7 @@ class OnboardB extends StatelessWidget {
                                 child: Text(
                                   'Mulai',
                                   style: GoogleFonts.poppins(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w600,
                                     color: const Color(0xFF34495E),
                                   ),
@@ -268,7 +269,7 @@ class OnboardB extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Image.asset(
                       'assets/maskot2.png',
-                      height: 210,
+                      height: 210.h,
                     ),
                   ),
                 )
