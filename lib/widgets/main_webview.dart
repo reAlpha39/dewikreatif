@@ -93,7 +93,7 @@ class _MainWebViewState extends State<MainWebView> {
                   );
                 },
                 initialUrlRequest: URLRequest(
-                  url: Uri.parse('https://dewikreatif.com/'),
+                  url: WebUri.uri(Uri.parse('https://dewikerten.my.id')),
                 ),
                 pullToRefreshController: _pullToRefreshController,
                 onLoadStart: (_, __) {
