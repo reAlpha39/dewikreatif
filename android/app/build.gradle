@@ -51,11 +51,20 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias "alpha"
+            keyPassword System.getenv("bamboo_key_password")
+            storeFile file("../code-sign/android-app.keystore")
+            storePassword System.getenv("bamboo_store_password")
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }

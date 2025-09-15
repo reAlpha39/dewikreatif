@@ -19,9 +19,7 @@ class _OnBoardingState extends State<OnBoarding> {
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: [
-          OnboardA(
-            pageController: _pageController,
-          ),
+          OnboardA(pageController: _pageController),
           const OnboardB(),
         ],
       ),
@@ -37,12 +35,17 @@ class OnboardA extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          'assets/onboard1.png',
-          fit: BoxFit.cover,
-          height: double.infinity,
-          width: double.infinity,
-          alignment: Alignment.center,
+        Column(
+          children: [
+            Expanded(
+              child: Image.asset(
+                'assets/onboard1.JPG',
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+              ),
+            ),
+            SizedBox(height: 150),
+          ],
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -63,10 +66,7 @@ class OnboardA extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFF1BCD7C),
-                          Color(0xFF005B7A),
-                        ],
+                        colors: [Color(0xFFF7BC30), Color(0xFFF7BC30)],
                       ),
                     ),
                     child: Padding(
@@ -80,22 +80,14 @@ class OnboardA extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 32.h),
-                            Text(
-                              'Desa Wisata Banyurejo',
-                              style: GoogleFonts.laila(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white,
-                              ),
-                            ),
+                            Image.asset('assets/maskot1.png', width: 150.w),
                             SizedBox(height: 8.h),
                             Text(
-                              'Jelajahi berbagai macam wisata di Kalurahan Banyurejo!',
+                              'Jelajahi berbagai macam wisata di Kalurahan Wirokerten!',
                               style: GoogleFonts.roboto(
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
-                                color: Colors.white,
+                                color: Color(0xFF34495E),
                               ),
                             ),
                             SizedBox(height: 8.h),
@@ -103,8 +95,8 @@ class OnboardA extends StatelessWidget {
                               'Tersedia informasi lengkap seputar aktivitas, fasilitas, lokasi serta panduan wisata.',
                               style: GoogleFonts.laila(
                                 fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF34495E),
                               ),
                             ),
                             SizedBox(height: 16.h),
@@ -114,7 +106,7 @@ class OnboardA extends StatelessWidget {
                                 curve: Curves.easeInOut,
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
+                                backgroundColor: Color(0xFF34495E),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -125,7 +117,7 @@ class OnboardA extends StatelessWidget {
                                   style: GoogleFonts.poppins(
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w600,
-                                    color: const Color(0xFF34495E),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
@@ -136,16 +128,16 @@ class OnboardA extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Image.asset(
-                      'assets/maskot1.png',
-                      height: 210.h,
-                    ),
-                  ),
-                )
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 32),
+                //   child: Align(
+                //     alignment: Alignment.topRight,
+                //     child: Image.asset(
+                //       'assets/maskot1.png',
+                //       height: 210.h,
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),
@@ -163,7 +155,7 @@ class OnboardB extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          'assets/onboard2.png',
+          'assets/onboard2.jpg',
           fit: BoxFit.cover,
           height: double.infinity,
           width: double.infinity,
@@ -188,10 +180,7 @@ class OnboardB extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFF1BCD7C),
-                          Color(0xFF005B7A),
-                        ],
+                        colors: [Color(0xFFF7BC30), Color(0xFFF7BC30)],
                       ),
                     ),
                     child: Padding(
@@ -205,22 +194,14 @@ class OnboardB extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 32.h),
-                            Text(
-                              'Desa Wisata Banyurejo',
-                              style: GoogleFonts.laila(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white,
-                              ),
-                            ),
+                            Image.asset('assets/maskot1.png', width: 150.w),
                             SizedBox(height: 8.h),
                             Text(
                               'Beragam aktivitas yang bisa dilakukan!',
                               style: GoogleFonts.roboto(
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w700,
-                                color: Colors.white,
+                                color: Color(0xFF34495E),
                               ),
                             ),
                             SizedBox(height: 8.h),
@@ -229,7 +210,7 @@ class OnboardB extends StatelessWidget {
                               style: GoogleFonts.laila(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
-                                color: Colors.white,
+                                color: Color(0xFF34495E),
                               ),
                             ),
                             SizedBox(height: 16.h),
@@ -241,7 +222,7 @@ class OnboardB extends StatelessWidget {
                                 ),
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
+                                backgroundColor: Color(0xFF34495E),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -252,7 +233,7 @@ class OnboardB extends StatelessWidget {
                                   style: GoogleFonts.poppins(
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w600,
-                                    color: const Color(0xFF34495E),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
@@ -263,16 +244,16 @@ class OnboardB extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Image.asset(
-                      'assets/maskot2.png',
-                      height: 210.h,
-                    ),
-                  ),
-                )
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 32),
+                //   child: Align(
+                //     alignment: Alignment.topRight,
+                //     child: Image.asset(
+                //       'assets/maskot2.png',
+                //       height: 210.h,
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),
